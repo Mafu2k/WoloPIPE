@@ -1,0 +1,147 @@
+/* Wersja 0.0.3 */
+:root {
+    --color-primary: #0B1343;
+    --color-primary-hover: #1a2870;
+    --color-primary-dark: #050a1f;
+    --color-text-main: #000000;
+    --color-text-invert: #FFFFFF;
+    --color-text-muted: #6B7280;
+    --color-bg-page: #FFFFFF;
+    --color-bg-section: #F8F9FA;
+    --color-bg-card: #FFFFFF;
+    --color-border-subtle: #E5E7EB;
+    --color-accent: #3b82f6;
+    --color-accent-light: #60A5FA;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+section[id] {
+    scroll-margin-top: 6rem;
+}
+
+.nav-link {
+    display: inline-block;
+    padding: 0.5rem 1.25rem;
+    color: var(--color-text-invert);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 9999px;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    text-decoration: none;
+}
+
+.nav-link:hover,
+.nav-link:focus-visible {
+    background-color: var(--color-primary-hover);
+    border-color: var(--color-primary-hover);
+}
+
+.nav-link--mobile {
+    padding: 0.75rem 1.25rem;
+}
+
+.navbar--scrolled {
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.3s ease;
+}
+
+.section-heading {
+    font-size: clamp(1.875rem, 4vw, 3rem);
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.zarzad-card__image {
+    transition: transform 0.3s ease;
+}
+
+.zarzad-card:hover .zarzad-card__image {
+    transform: scale(1.05);
+}
+
+.portfolio-image {
+    transition: filter 0.3s ease;
+}
+
+.portfolio-card:hover .portfolio-image {
+    filter: blur(8px);
+}
+
+.portfolio-overlay {
+    transition: opacity 0.3s ease;
+}
+
+.portfolio-card:hover .portfolio-overlay {
+    opacity: 1;
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border-subtle);
+    border-radius: 0.5rem;
+    color: var(--color-text-main);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(11, 19, 67, 0.15);
+}
+
+.form-input::placeholder {
+    color: var(--color-text-muted);
+}
+
+.form-success {
+    display: none;
+    text-align: center;
+    padding: 2rem;
+    color: var(--color-primary);
+}
+
+.form-success.is-visible {
+    display: block;
+}
+
+.contact-icon-box {
+    width: 3rem;
+    height: 3rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.footer-link {
+    color: rgba(255, 255, 255, 0.7);
+    transition: color 0.2s ease;
+    text-decoration: none;
+}
+
+.footer-link:hover,
+.footer-link:focus-visible {
+    color: var(--color-accent-light);
+}
+
+*:focus-visible {
+    outline: 2px solid var(--color-accent-light);
+    outline-offset: 2px;
+}
+
+*:focus:not(:focus-visible) {
+    outline: none;
+}
+
+.grid-pattern {
+    position: absolute;
+    inset: 0;
+    opacity: 0.1;
+}
