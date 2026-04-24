@@ -1,11 +1,11 @@
-<!-- Wersja 0.0.3 -->
 <!DOCTYPE html>
 <html lang="pl">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Wolowsky Sp. z o.o. — profesjonalne usługi projektowania rurociągów i konstrukcji stalowych. SmartPlant 3D, AutoCAD Plant 3D, AVEVA E3D.">
+    <meta name="description"
+        content="Wolowsky Sp. z o.o. — profesjonalne usługi projektowania rurociągów i konstrukcji stalowych. SmartPlant 3D, AutoCAD Plant 3D, AVEVA E3D.">
     <meta name="robots" content="index, follow">
     <meta property="og:title" content="Wolowsky Sp. z o.o. — Profesjonalne Usługi">
     <meta property="og:description" content="Projektowanie rurociągów, konstrukcje stalowe, inżynieria procesowa.">
@@ -43,152 +43,116 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
 </head>
 
 <body class="font-sans bg-bg-page text-text-main">
 
-    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-primary opacity-0">
-        <nav class="container mx-auto px-4 lg:px-8" aria-label="Nawigacja główna">
-            <div class="flex items-center justify-between h-24 lg:h-32">
-                <a href="#" aria-label="Strona główna Wolowsky">
-                    <img src="zdjlogo/7f59ffa7-3e35-4be1-b077-e3ec05c69735-removebg-preview 1.png"
-                        alt="Wolowsky Piping Design — logo" class="h-20 lg:h-28 brightness-0 invert opacity-60"
-                        fetchpriority="high">
-                </a>
+    <header id="navbar" class="site-nav opacity-0">
+        <nav class="site-nav__inner" aria-label="Nawigacja główna">
+            <a href="#" class="site-nav__logo" aria-label="Wolowsky — strona główna">
+                <img src="zdjlogo/7f59ffa7-3e35-4be1-b077-e3ec05c69735-removebg-preview 1.png"
+                    alt="Wolowsky Piping Design" fetchpriority="high">
+            </a>
 
-                <button id="mobile-menu-btn" class="lg:hidden text-text-invert p-2" aria-label="Otwórz menu"
-                    aria-expanded="false" aria-controls="mobile-menu">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
-                </button>
+            <button id="mobile-menu-btn" class="site-nav__burger" aria-label="Otwórz menu" aria-expanded="false"
+                aria-controls="mobile-menu">
+                <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
 
-                <div class="hidden lg:flex items-center gap-3">
-                    <a href="#zarzad" class="nav-link" data-en="Board">Zarząd</a>
-                    <a href="#team" class="nav-link">Team</a>
-                    <a href="#portfolio" class="nav-link">Portfolio</a>
-                    <a href="#kontakt" class="nav-link" data-en="Contact">Kontakt</a>
-                    <button id="lang-toggle" class="ml-4 px-4 py-2 text-sm font-bold text-blue-400 border border-blue-400/40 rounded-full transition-all hover:bg-blue-400/10">
-                        EN
-                    </button>
-                </div>
-            </div>
-
-            <div id="mobile-menu" class="hidden lg:hidden pb-4">
-                <div class="flex flex-col gap-3">
-                    <a href="#zarzad" class="nav-link nav-link--mobile" data-en="Board">Zarząd</a>
-                    <a href="#team" class="nav-link nav-link--mobile">Team</a>
-                    <a href="#portfolio" class="nav-link nav-link--mobile">Portfolio</a>
-                    <a href="#kontakt" class="nav-link nav-link--mobile" data-en="Contact">Kontakt</a>
-                    <button id="lang-toggle-mobile" class="px-4 py-3 text-sm font-bold text-blue-400 border border-blue-400/40 rounded-full transition-all hover:bg-blue-400/10">
-                        EN
-                    </button>
-                </div>
+            <div class="site-nav__links">
+                <a href="#zarzad" class="nav-link" data-en="Board">Zarząd</a>
+                <a href="#team" class="nav-link">Team</a>
+                <a href="#portfolio" class="nav-link">Portfolio</a>
+                <a href="#kontakt" class="nav-link" data-en="Contact">Kontakt</a>
+                <button id="lang-toggle" class="nav-lang">EN</button>
             </div>
         </nav>
+
+        <div id="mobile-menu" class="site-nav__mobile hidden">
+            <a href="#zarzad" class="nav-link nav-link--mobile" data-en="Board">Zarząd</a>
+            <a href="#team" class="nav-link nav-link--mobile">Team</a>
+            <a href="#portfolio" class="nav-link nav-link--mobile">Portfolio</a>
+            <a href="#kontakt" class="nav-link nav-link--mobile" data-en="Contact">Kontakt</a>
+            <button id="lang-toggle-mobile" class="nav-lang">EN</button>
+        </div>
     </header>
 
     <main>
-        <section id="hero" class="min-h-screen relative flex items-center pt-20 bg-primary overflow-hidden">
-            <div class="grid-pattern">
-                <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-width="0.5" />
-                        </pattern>
-                    </defs>
-                    <rect width="100%" height="100%" fill="url(#grid)" />
-                </svg>
-            </div>
+        <section id="hero" class="hero">
 
-            <div class="absolute inset-0 z-[1] flex items-center justify-center lg:justify-start overflow-hidden">
-                <img src="zdecia/zuraw1.png" alt="" aria-hidden="true"
-                    class="w-full h-full object-cover opacity-10 lg:opacity-15">
-            </div>
+            <div class="hero__bg" aria-hidden="true"></div>
 
-            <div class="container mx-auto px-4 lg:px-8 py-16 lg:py-24 relative z-10">
-                <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                    <div class="order-2 lg:order-1">
-                        <svg id="hero-line" class="w-24 h-1 mb-8 opacity-0" viewBox="0 0 96 4">
-                            <line x1="0" y1="2" x2="96" y2="2" stroke="#60A5FA" stroke-width="2"
-                                stroke-dasharray="96" stroke-dashoffset="96" />
-                            <circle cx="4" cy="2" r="3" fill="#60A5FA" opacity="0" />
-                            <circle cx="92" cy="2" r="3" fill="#60A5FA" opacity="0" />
-                        </svg>
+            <div class="hero__split">
 
-                        <h1 id="hero-title"
-                            class="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-text-invert mb-6 leading-tight opacity-0"
-                            data-en="Piping Design<br><span class='text-blue-400'>Engineering</span><br>At The Highest Level">
-                            Projektowanie<br>
-                            <span class="text-blue-400">Rurociągów</span><br>
-                            Na Najwyższym Poziomie
+                <div class="hero__left">
+                    <div class="hero__left-inner">
+
+                        <div id="hero-eyebrow" class="hero__eyebrow" style="opacity:0">
+                            <span class="hero__eyebrow-dot" aria-hidden="true"></span>
+                            <span data-en="Industrial piping design">Projektowanie rurociągów przemysłowych</span>
+                        </div>
+
+                        <h1 id="hero-title" class="hero__h1" style="opacity:0"
+                            data-en="Piping systems<br>designed&nbsp;<em>with precision</em>">
+                            Systemy rurociągowe<br>projektowane&nbsp;<em>z&nbsp;precyzją</em>
                         </h1>
 
-                        <p id="hero-desc"
-                            class="text-lg lg:text-xl text-text-invert/80 mb-8 max-w-lg leading-relaxed opacity-0"
-                            data-en="We specialize in comprehensive piping system design for the petrochemical, energy, and chemical industries. We deliver projects on time, with precision down to the last flange.">
-                            Specjalizujemy się w kompleksowym projektowaniu instalacji rurociągowych dla przemysłu
-                            petrochemicznego, energetycznego i chemicznego. Realizujemy projekty terminowo, z precyzją
-                            co do ostatniego kołnierza.
+                        <p id="hero-sub" class="hero__body" style="opacity:0"
+                            data-en="3D piping design for Oil &amp; Gas, energy and chemical industries. From P&amp;ID to isometric documentation — greenfield and brownfield.">
+                            Projektowanie 3D instalacji rurociągowych dla sektora Oil&nbsp;&amp;&nbsp;Gas, energetyki i
+                            chemii. Od P&amp;ID po dokumentację izometryczną — projekty greenfield i brownfield.
                         </p>
 
-                        <div id="hero-cta" class="flex flex-wrap gap-4 opacity-0">
-                            <a href="#portfolio"
-                                class="inline-flex items-center gap-2 px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg transition-all hover:bg-blue-600 hover:shadow-lg hover:shadow-blue-500/30">
-                                <span data-en="View portfolio">Zobacz portfolio</span>
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        <div id="hero-cta" class="hero__actions" style="opacity:0">
+                            <a href="#portfolio" id="cta-portfolio" class="h-btn-primary" data-en="See projects">
+                                Zobacz realizacje
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                        d="M5 12h14M12 5l7 7-7 7" />
                                 </svg>
                             </a>
-                            <a href="#kontakt"
-                                class="inline-flex items-center gap-2 px-6 py-3 border-2 border-text-invert/30 text-text-invert font-semibold rounded-lg transition-all hover:border-text-invert hover:bg-text-invert/10">
-                                <span data-en="Get in touch">Skontaktuj się</span>
-                            </a>
+                            <a href="#kontakt" id="cta-contact" class="h-btn-ghost"
+                                data-en="Ask about a project">Zapytaj o projekt</a>
                         </div>
 
-                        <div id="hero-markers"
-                            class="flex items-center gap-8 mt-12 pt-8 border-t border-text-invert/10 opacity-0">
-                            <div class="flex items-center gap-2">
-                                <div class="w-2 h-2 bg-blue-400 rounded-full"></div>
-                                <span class="text-text-invert/60 text-sm font-mono">SmartPlant 3D</span>
+                        <div id="hero-markers" class="hero__stats" style="opacity:0">
+                            <div class="hero__kpi">
+                                <strong>3<span>+</span></strong>
+                                <span data-en="design platforms">platformy projektowe</span>
                             </div>
-                            <div class="flex items-center gap-2">
-                                <div class="w-2 h-2 bg-blue-400 rounded-full"></div>
-                                <span class="text-text-invert/60 text-sm font-mono">AutoCAD Plant 3D</span>
-                            </div>
-                            <div class="flex items-center gap-2">
-                                <div class="w-2 h-2 bg-blue-400 rounded-full"></div>
-                                <span class="text-text-invert/60 text-sm font-mono">AVEVA E3D</span>
+                            <div class="hero__kpi-sep" aria-hidden="true"></div>
+                            <div class="hero__kpi">
+                                <strong>5<span>+</span></strong>
+                                <span data-en="completed projects">zrealizowanych projektów</span>
                             </div>
                         </div>
-                    </div>
 
-                    <div id="hero-image" class="order-1 lg:order-2 relative opacity-0">
-                        <div class="absolute -inset-4 border border-blue-400/20 rounded-lg"></div>
-                        <div class="absolute -inset-8 border border-blue-400/10 rounded-xl hidden lg:block"></div>
-                        <div class="absolute -top-2 -left-2 w-6 h-6 border-l-2 border-t-2 border-blue-400"></div>
-                        <div class="absolute -top-2 -right-2 w-6 h-6 border-r-2 border-t-2 border-blue-400"></div>
-                        <div class="absolute -bottom-2 -left-2 w-6 h-6 border-l-2 border-b-2 border-blue-400"></div>
-                        <div class="absolute -bottom-2 -right-2 w-6 h-6 border-r-2 border-b-2 border-blue-400"></div>
-                        <div class="relative aspect-[4/5] lg:aspect-[3/4] rounded-lg overflow-hidden bg-primary">
-                            <canvas id="pipe-rack-canvas" class="w-full h-full"></canvas>
-                            <div
-                                class="absolute bottom-4 left-4 right-4 flex items-center justify-between text-xs font-mono text-blue-400/60">
-                                <span>REF: WPD-2024</span>
-                                <span>SCALE 1:100</span>
-                            </div>
-                        </div>
                     </div>
                 </div>
+
+                <div id="hero-image" class="hero__right" style="opacity:0" aria-hidden="true">
+                    <img src="zdecia/zuraw1.png" alt="" class="hero__crane">
+                    <div class="hero__right-fade-l"></div>
+                    <div class="hero__right-fade-b"></div>
+
+                    <div class="hero__badge">
+                        <p class="hero__badge-label" data-en="Design tools">Narzędzia projektowe</p>
+                        <ul class="hero__badge-list">
+                            <li>SmartPlant 3D</li>
+                            <li>AutoCAD Plant 3D</li>
+                            <li>AVEVA E3D</li>
+                        </ul>
+                    </div>
+                </div>
+
             </div>
 
-            <div id="scroll-indicator"
-                class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-0">
-                <span class="text-text-invert/40 text-xs font-mono tracking-widest">SCROLL</span>
-                <div class="w-px h-8 bg-gradient-to-b from-text-invert/40 to-transparent"></div>
+            <div id="scroll-indicator" class="hero__scroll" style="opacity:0" aria-hidden="true">
+                <span>scroll</span>
+                <div class="hero__scroll-bar"></div>
             </div>
         </section>
 
@@ -197,7 +161,8 @@
                 <h2 class="section-heading text-primary" data-en="Board of Directors">Zarząd</h2>
 
                 <div class="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-4xl mx-auto">
-                    <article class="zarzad-card bg-bg-card rounded-2xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-primary/20 hover:shadow-2xl opacity-0 cursor-pointer"
+                    <article
+                        class="zarzad-card bg-bg-card rounded-2xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-primary/20 hover:shadow-2xl opacity-0 cursor-pointer"
                         data-name="Łukasz Wołowski" data-role="Prezes Zarządu"
                         data-bio="Inżynier z wieloletnim doświadczeniem w projektowaniu instalacji rurociągowych dla sektora Oil & Gas. Absolwent Politechniki Śląskiej na kierunku Mechanika i Budowa Maszyn. Przez ponad 15 lat zarządzał projektami piping design dla rafinerii i terminali paliwowych w Polsce i Europie."
                         data-experience="Kierował zespołami projektowymi odpowiedzialnymi za modelowanie 3D w środowisku AVEVA E3D i SmartPlant 3D. Nadzorował realizację dokumentacji izometrycznej i planów rurociągów dla instalacji o wartości przekraczającej 200 mln PLN. Doświadczenie obejmuje projekty greenfield i brownfield w sektorze petrochemicznym."
@@ -219,11 +184,13 @@
                         <div class="p-6 lg:p-8">
                             <h3 class="text-xl lg:text-2xl font-bold text-primary mb-2">Łukasz Wołowski</h3>
                             <p class="text-primary/80 font-medium" data-en="CEO">Prezes Zarządu</p>
-                            <p class="text-sm text-text-muted mt-2" data-en="Click for more →">Kliknij, aby zobaczyć więcej →</p>
+                            <p class="text-sm text-text-muted mt-2" data-en="Click for more →">Kliknij, aby zobaczyć
+                                więcej →</p>
                         </div>
                     </article>
 
-                    <article class="zarzad-card bg-bg-card rounded-2xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-primary/20 hover:shadow-2xl opacity-0 cursor-pointer"
+                    <article
+                        class="zarzad-card bg-bg-card rounded-2xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-primary/20 hover:shadow-2xl opacity-0 cursor-pointer"
                         data-name="Michał Wołowski" data-role="Wiceprezes Zarządu"
                         data-bio="Specjalista w dziedzinie projektowania konstrukcji wsporczych pod rurociągi oraz pipe rack'ów. Absolwent Wydziału Inżynierii Środowiska Politechniki Krakowskiej. Posiada szeroką wiedzę z zakresu analizy wytrzymałościowej i doboru materiałów zgodnie z normami europejskimi i amerykańskimi."
                         data-experience="Realizował projekty stress analysis dla linii rurociągowych pracujących w temperaturach od -196°C do +600°C. Koordynował współpracę międzybranżową między działami piping, structural i process. Odpowiedzialny za wdrożenie standardów projektowych opartych na ASME B31.1 i EN 13480 w firmie."
@@ -245,7 +212,8 @@
                         <div class="p-6 lg:p-8">
                             <h3 class="text-xl lg:text-2xl font-bold text-primary mb-2">Michał Wołowski</h3>
                             <p class="text-primary/80 font-medium" data-en="Vice President">Wiceprezes Zarządu</p>
-                            <p class="text-sm text-text-muted mt-2" data-en="Click for more →">Kliknij, aby zobaczyć więcej →</p>
+                            <p class="text-sm text-text-muted mt-2" data-en="Click for more →">Kliknij, aby zobaczyć
+                                więcej →</p>
                         </div>
                     </article>
                 </div>
@@ -287,7 +255,8 @@
                             <p id="modal-experience" class="text-text-main leading-relaxed"></p>
                         </div>
                         <div class="border-t border-border-subtle pt-8">
-                            <h4 class="text-xl font-bold text-primary mb-6" data-en="Certificates & Qualifications">Certyfikaty i Uprawnienia</h4>
+                            <h4 class="text-xl font-bold text-primary mb-6" data-en="Certificates & Qualifications">
+                                Certyfikaty i Uprawnienia</h4>
                             <div id="modal-certs" class="flex flex-wrap gap-3"></div>
                         </div>
                     </div>
@@ -295,7 +264,7 @@
             </div>
         </div>
 
-        <section id="team" class="py-20 lg:py-28 bg-primary relative overflow-hidden">
+        <section id="team" class="py-20 lg:py-28 relative overflow-hidden">
             <div class="grid-pattern">
                 <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
                     <defs>
@@ -322,7 +291,8 @@
                             </svg>
                         </div>
                         <h3 class="text-text-invert font-semibold mb-1" data-en="Process Engineer">Inżynier Procesu</h3>
-                        <p class="text-text-invert/50 text-sm" data-en="Piping specialist">Specjalista ds. rurociągów</p>
+                        <p class="text-text-invert/50 text-sm" data-en="Piping specialist">Specjalista ds. rurociągów
+                        </p>
                     </div>
                     <div
                         class="team-element opacity-0 bg-text-invert/5 border border-text-invert/10 rounded-2xl p-6 text-center transition-all hover:bg-text-invert/10">
@@ -372,7 +342,8 @@
                 <h2 class="section-heading text-primary">Portfolio</h2>
 
                 <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <article class="portfolio-card relative rounded-xl overflow-hidden shadow-lg cursor-pointer opacity-0">
+                    <article
+                        class="portfolio-card relative rounded-xl overflow-hidden shadow-lg cursor-pointer opacity-0">
                         <div class="aspect-[3/4]">
                             <div
                                 class="portfolio-image w-full h-full bg-gradient-to-br from-gray-200 to-gray-400 flex items-center justify-center">
@@ -384,19 +355,25 @@
                             </div>
                             <div
                                 class="portfolio-overlay absolute inset-0 bg-primary/95 opacity-0 flex flex-col items-center justify-center p-6 text-center">
-                                <h3 class="text-xl font-bold text-text-invert mb-3" data-en="Gdańsk Refinery">Rafineria Gdańsk</h3>
-                                <p class="text-text-invert/90 text-sm mb-4" data-en="Complete piping design for a crude oil distillation unit. Over 12 km of piping lines in 3D model.">Kompletny projekt piping dla instalacji destylacji ropy naftowej. Ponad 12 km linii rurociągowych w modelu 3D.</p>
+                                <h3 class="text-xl font-bold text-text-invert mb-3" data-en="Gdańsk Refinery">Rafineria
+                                    Gdańsk</h3>
+                                <p class="text-text-invert/90 text-sm mb-4"
+                                    data-en="Complete piping design for a crude oil distillation unit. Over 12 km of piping lines in 3D model.">
+                                    Kompletny projekt piping dla instalacji destylacji ropy naftowej. Ponad 12 km linii
+                                    rurociągowych w modelu 3D.</p>
                                 <div class="flex flex-wrap gap-2 justify-center">
                                     <span
-                                        class="px-3 py-1 bg-text-invert/20 rounded-full text-xs text-text-invert">SmartPlant 3D</span>
-                                    <span
-                                        class="px-3 py-1 bg-text-invert/20 rounded-full text-xs text-text-invert">Oil & Gas</span>
+                                        class="px-3 py-1 bg-text-invert/20 rounded-full text-xs text-text-invert">SmartPlant
+                                        3D</span>
+                                    <span class="px-3 py-1 bg-text-invert/20 rounded-full text-xs text-text-invert">Oil
+                                        & Gas</span>
                                 </div>
                             </div>
                         </div>
                     </article>
 
-                    <article class="portfolio-card relative rounded-xl overflow-hidden shadow-lg cursor-pointer opacity-0">
+                    <article
+                        class="portfolio-card relative rounded-xl overflow-hidden shadow-lg cursor-pointer opacity-0">
                         <div class="aspect-[3/4]">
                             <div
                                 class="portfolio-image w-full h-full bg-gradient-to-br from-gray-200 to-gray-400 flex items-center justify-center">
@@ -408,11 +385,16 @@
                             </div>
                             <div
                                 class="portfolio-overlay absolute inset-0 bg-primary/95 opacity-0 flex flex-col items-center justify-center p-6 text-center">
-                                <h3 class="text-xl font-bold text-text-invert mb-3" data-en="LNG Terminal">Terminal LNG</h3>
-                                <p class="text-text-invert/90 text-sm mb-4" data-en="Piping design for an LNG receiving terminal including cryogenic systems operating at -162°C.">Projekt rurociągów dla terminalu odbiorczego LNG, w tym systemy kriogeniczne pracujące w temperaturze -162°C.</p>
+                                <h3 class="text-xl font-bold text-text-invert mb-3" data-en="LNG Terminal">Terminal LNG
+                                </h3>
+                                <p class="text-text-invert/90 text-sm mb-4"
+                                    data-en="Piping design for an LNG receiving terminal including cryogenic systems operating at -162°C.">
+                                    Projekt rurociągów dla terminalu odbiorczego LNG, w tym systemy kriogeniczne
+                                    pracujące w temperaturze -162°C.</p>
                                 <div class="flex flex-wrap gap-2 justify-center">
                                     <span
-                                        class="px-3 py-1 bg-text-invert/20 rounded-full text-xs text-text-invert">AVEVA E3D</span>
+                                        class="px-3 py-1 bg-text-invert/20 rounded-full text-xs text-text-invert">AVEVA
+                                        E3D</span>
                                     <span
                                         class="px-3 py-1 bg-text-invert/20 rounded-full text-xs text-text-invert">Kriogenika</span>
                                 </div>
@@ -420,7 +402,8 @@
                         </div>
                     </article>
 
-                    <article class="portfolio-card relative rounded-xl overflow-hidden shadow-lg cursor-pointer opacity-0">
+                    <article
+                        class="portfolio-card relative rounded-xl overflow-hidden shadow-lg cursor-pointer opacity-0">
                         <div class="aspect-[3/4]">
                             <div
                                 class="portfolio-image w-full h-full bg-gradient-to-br from-gray-200 to-gray-400 flex items-center justify-center">
@@ -432,11 +415,16 @@
                             </div>
                             <div
                                 class="portfolio-overlay absolute inset-0 bg-primary/95 opacity-0 flex flex-col items-center justify-center p-6 text-center">
-                                <h3 class="text-xl font-bold text-text-invert mb-3" data-en="CHP Katowice">Elektrociepłownia Katowice</h3>
-                                <p class="text-text-invert/90 text-sm mb-4" data-en="Steam and condensate piping systems for a 400 MW combined heat and power plant. High-pressure lines up to 140 bar.">Rurociągi parowe i kondensatowe dla elektrociepłowni o mocy 400 MW. Linie wysokociśnieniowe do 140 bar.</p>
+                                <h3 class="text-xl font-bold text-text-invert mb-3" data-en="CHP Katowice">
+                                    Elektrociepłownia Katowice</h3>
+                                <p class="text-text-invert/90 text-sm mb-4"
+                                    data-en="Steam and condensate piping systems for a 400 MW combined heat and power plant. High-pressure lines up to 140 bar.">
+                                    Rurociągi parowe i kondensatowe dla elektrociepłowni o mocy 400 MW. Linie
+                                    wysokociśnieniowe do 140 bar.</p>
                                 <div class="flex flex-wrap gap-2 justify-center">
                                     <span
-                                        class="px-3 py-1 bg-text-invert/20 rounded-full text-xs text-text-invert">AutoCAD Plant 3D</span>
+                                        class="px-3 py-1 bg-text-invert/20 rounded-full text-xs text-text-invert">AutoCAD
+                                        Plant 3D</span>
                                     <span
                                         class="px-3 py-1 bg-text-invert/20 rounded-full text-xs text-text-invert">Energetyka</span>
                                 </div>
@@ -444,7 +432,8 @@
                         </div>
                     </article>
 
-                    <article class="portfolio-card relative rounded-xl overflow-hidden shadow-lg cursor-pointer opacity-0">
+                    <article
+                        class="portfolio-card relative rounded-xl overflow-hidden shadow-lg cursor-pointer opacity-0">
                         <div class="aspect-[3/4]">
                             <div
                                 class="portfolio-image w-full h-full bg-gradient-to-br from-gray-200 to-gray-400 flex items-center justify-center">
@@ -456,11 +445,16 @@
                             </div>
                             <div
                                 class="portfolio-overlay absolute inset-0 bg-primary/95 opacity-0 flex flex-col items-center justify-center p-6 text-center">
-                                <h3 class="text-xl font-bold text-text-invert mb-3" data-en="Chemical Plant Tarnów">Zakład Chemiczny Tarnów</h3>
-                                <p class="text-text-invert/90 text-sm mb-4" data-en="Process piping for a polyethylene production plant. Corrosion-resistant materials and stringent safety requirements.">Rurociągi procesowe dla wytwórni polietylenu. Materiały odporne na korozję i rygorystyczne wymagania bezpieczeństwa.</p>
+                                <h3 class="text-xl font-bold text-text-invert mb-3" data-en="Chemical Plant Tarnów">
+                                    Zakład Chemiczny Tarnów</h3>
+                                <p class="text-text-invert/90 text-sm mb-4"
+                                    data-en="Process piping for a polyethylene production plant. Corrosion-resistant materials and stringent safety requirements.">
+                                    Rurociągi procesowe dla wytwórni polietylenu. Materiały odporne na korozję i
+                                    rygorystyczne wymagania bezpieczeństwa.</p>
                                 <div class="flex flex-wrap gap-2 justify-center">
                                     <span
-                                        class="px-3 py-1 bg-text-invert/20 rounded-full text-xs text-text-invert">SmartPlant 3D</span>
+                                        class="px-3 py-1 bg-text-invert/20 rounded-full text-xs text-text-invert">SmartPlant
+                                        3D</span>
                                     <span
                                         class="px-3 py-1 bg-text-invert/20 rounded-full text-xs text-text-invert">Chemia</span>
                                 </div>
@@ -471,7 +465,7 @@
             </div>
         </section>
 
-        <section id="kontakt" class="py-20 lg:py-28 bg-primary relative overflow-hidden">
+        <section id="kontakt" class="py-20 lg:py-28 relative overflow-hidden">
             <div class="grid-pattern">
                 <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
                     <defs>
@@ -488,8 +482,10 @@
 
                 <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 max-w-6xl mx-auto">
                     <div id="contact-info" class="opacity-0">
-                        <h3 class="text-2xl font-bold text-text-invert mb-8" data-en="Let's talk about your project">Porozmawiajmy o Twoim projekcie</h3>
-                        <p class="text-text-invert/90 mb-8 text-lg" data-en="We are ready to take on even the most demanding piping projects. Contact us to discuss the details of cooperation.">
+                        <h3 class="text-2xl font-bold text-text-invert mb-8" data-en="Let's talk about your project">
+                            Porozmawiajmy o Twoim projekcie</h3>
+                        <p class="text-text-invert/90 mb-8 text-lg"
+                            data-en="We are ready to take on even the most demanding piping projects. Contact us to discuss the details of cooperation.">
                             Jesteśmy gotowi podjąć się nawet najbardziej wymagających projektów rurociągowych.
                             Skontaktuj się z nami, aby omówić szczegóły współpracy.
                         </p>
@@ -522,7 +518,7 @@
                                 <div>
                                     <p class="text-text-invert font-medium" data-en="Phone">Telefon</p>
                                     <p class="text-text-invert/80">
-                                        <a href="tel:+48221234567" class="hover:text-blue-400 transition-colors">+48 22 123 45 67</a>
+                                        <a href="tel:+48221234567" class="contact-link">+48 22 123 45 67</a>
                                     </p>
                                 </div>
                             </div>
@@ -539,25 +535,27 @@
                                     <p class="text-text-invert font-medium">Email</p>
                                     <p class="text-text-invert/80">
                                         <a href="mailto:wolowsky.sp.zoo@gmail.com"
-                                            class="hover:text-blue-400 transition-colors">wolowsky.sp.zoo@gmail.com</a>
+                                            class="contact-link">wolowsky.sp.zoo@gmail.com</a>
                                     </p>
                                 </div>
                             </div>
                         </address>
                     </div>
 
-                    <div id="contact-form" class="bg-bg-card rounded-2xl p-8 lg:p-10 shadow-2xl opacity-0">
+                    <div id="contact-form" class="opacity-0">
                         <form id="contact-form-element">
                             <div class="space-y-6">
                                 <div>
-                                    <label for="field-name" class="block text-text-muted text-sm font-medium mb-2" data-en="Full name">
+                                    <label for="field-name" class="block text-text-muted text-sm font-medium mb-2"
+                                        data-en="Full name">
                                         Imię i nazwisko<span class="text-primary">*</span>
                                     </label>
                                     <input type="text" id="field-name" name="name" required class="form-input"
                                         placeholder="Jan Kowalski">
                                 </div>
                                 <div>
-                                    <label for="field-phone" class="block text-text-muted text-sm font-medium mb-2" data-en="Phone">
+                                    <label for="field-phone" class="block text-text-muted text-sm font-medium mb-2"
+                                        data-en="Phone">
                                         Telefon<span class="text-primary">*</span>
                                     </label>
                                     <input type="tel" id="field-phone" name="phone" required class="form-input"
@@ -571,15 +569,14 @@
                                         placeholder="jan@firma.pl">
                                 </div>
                                 <div>
-                                    <label for="field-message" class="block text-text-muted text-sm font-medium mb-2" data-en="Additional information">
+                                    <label for="field-message" class="block text-text-muted text-sm font-medium mb-2"
+                                        data-en="Additional information">
                                         Dodatkowe informacje
                                     </label>
                                     <textarea id="field-message" name="message" rows="4" class="form-input resize-none"
                                         placeholder="Opisz swój projekt..."></textarea>
                                 </div>
-                                <button type="submit"
-                                    class="w-full py-4 bg-primary text-text-invert font-semibold rounded-lg transition-colors hover:bg-primary-hover"
-                                    data-en="Send inquiry">
+                                <button type="submit" class="form-submit" data-en="Send inquiry">
                                     Wyślij zapytanie
                                 </button>
                             </div>
@@ -592,7 +589,8 @@
                                     d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
                             <h3 class="text-xl font-bold text-primary mb-2" data-en="Thank you!">Dziękujemy!</h3>
-                            <p class="text-text-muted" data-en="Your inquiry has been sent. We will contact you soon.">Twoje zapytanie zostało wysłane. Skontaktujemy się wkrótce.</p>
+                            <p class="text-text-muted" data-en="Your inquiry has been sent. We will contact you soon.">
+                                Twoje zapytanie zostało wysłane. Skontaktujemy się wkrótce.</p>
                         </div>
                     </div>
                 </div>
@@ -600,7 +598,7 @@
         </section>
     </main>
 
-    <footer class="bg-primary-dark py-12 lg:py-16">
+    <footer class="py-12 lg:py-16">
         <div class="container mx-auto px-4 lg:px-8">
             <div class="flex flex-col lg:flex-row items-center justify-between gap-8">
                 <a href="#" aria-label="Wolowsky — strona główna">
@@ -615,14 +613,14 @@
                 </nav>
             </div>
             <div class="mt-12 pt-8 border-t border-text-invert/10 text-center">
-                <p class="text-text-invert/70 text-sm" data-en="Copyright © 2026 Wolowsky Sp. z o.o. All rights reserved.">
+                <p class="text-text-invert/70 text-sm"
+                    data-en="Copyright © 2026 Wolowsky Sp. z o.o. All rights reserved.">
                     Copyright © 2026 Wolowsky Sp. z o.o. Wszystkie prawa zastrzeżone.
                 </p>
             </div>
         </div>
     </footer>
 
-    <script src="pipeRack3d.js" defer></script>
     <script src="animations.js" defer></script>
 </body>
 

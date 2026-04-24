@@ -1,4 +1,3 @@
-// Wersja 0.0.3
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 const mobileMenuBtn = document.getElementById('mobile-menu-btn');
@@ -19,65 +18,35 @@ mobileMenu.querySelectorAll('a').forEach(link => {
 
 const navbar = document.getElementById('navbar');
 
-gsap.to(navbar, {
-    opacity: 1,
-    duration: 0.8,
-    ease: 'power2.out'
-});
+gsap.to(navbar, { opacity: 1, duration: .7, ease: 'power2.out' });
 
 ScrollTrigger.create({
     start: 50,
     onUpdate: (self) => {
-        if (self.scroll() > 50) {
-            navbar.classList.add('navbar--scrolled');
-        } else {
-            navbar.classList.remove('navbar--scrolled');
-        }
+        navbar.classList.toggle('navbar--scrolled', self.scroll() > 50);
     }
 });
 
-gsap.to('#hero-line', { opacity: 1, duration: 0.3, delay: 0.3 });
-gsap.to('#hero-line line', {
-    strokeDashoffset: 0,
-    duration: 0.8,
-    delay: 0.4,
-    ease: 'power2.out'
-});
-gsap.to('#hero-line circle', {
-    opacity: 1,
-    duration: 0.3,
-    delay: 1,
-    stagger: 0.1
-});
+animateIn('#hero-eyebrow', { y: 16 }, { duration: 0.6, delay: 0.3, ease: 'power2.out' });
+animateIn('#hero-title', { y: 32 }, { duration: 0.9, delay: 0.55, ease: 'power3.out' });
+animateIn('#hero-sub', { y: 24 }, { duration: 0.7, delay: 0.8, ease: 'power3.out' });
+animateIn('#hero-cta', { y: 16 }, { duration: 0.6, delay: 1.05, ease: 'power2.out' });
+animateIn('#hero-markers', { y: 16 }, { duration: 0.5, delay: 1.3, ease: 'power2.out' });
+animateIn('#hero-image', { x: 40 }, { duration: 1, delay: 0.7, ease: 'power3.out' });
 
-animateIn('#hero-title', { y: 40 }, { duration: 1, delay: 0.5, ease: 'power3.out' });
-animateIn('#hero-desc', { y: 30 }, { duration: 0.8, delay: 0.8, ease: 'power3.out' });
-animateIn('#hero-cta', { y: 20 }, { duration: 0.6, delay: 1.1, ease: 'power2.out' });
-animateIn('#hero-markers', { y: 20 }, { duration: 0.6, delay: 1.4, ease: 'power2.out' });
-animateIn('#hero-image', { x: 60 }, { duration: 1.2, delay: 0.6, ease: 'power3.out' });
-
-gsap.to('#scroll-indicator', { opacity: 1, duration: 0.6, delay: 2, ease: 'power2.out' });
+gsap.to('#scroll-indicator', { opacity: 1, duration: 0.6, delay: 1.8, ease: 'power2.out' });
 gsap.to('#scroll-indicator', {
-    y: 5,
-    duration: 1.5,
+    y: 6,
+    duration: 1.8,
     repeat: -1,
     yoyo: true,
-    ease: 'power1.inOut',
-    delay: 2.5
+    ease: 'sine.inOut',
+    delay: 2.4
 });
 
-gsap.to('#hero-image', {
-    scrollTrigger: {
-        trigger: '#hero',
-        start: 'top top',
-        end: 'bottom top',
-        scrub: 1
-    },
-    y: 100,
-    ease: 'none'
-});
-
-document.querySelectorAll('#hero-cta a').forEach(link => {
+['#cta-portfolio', '#cta-contact'].forEach(id => {
+    const link = document.querySelector(id);
+    if (!link) return;
     link.addEventListener('click', (e) => {
         e.preventDefault();
         const target = document.querySelector(link.getAttribute('href'));
